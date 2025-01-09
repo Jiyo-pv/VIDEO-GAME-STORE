@@ -119,9 +119,10 @@ echo "<input type='submit' value='BACK'></form>";
 		background-image: url('buy0.gif');
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		background-size: 100%;
-		background-repeat: no-repeat;
+		background-size: cover;
 		background-color: white;
+		background-repeat: no-repeat;
+		
 	}
 	div{
 		padding: 5px;

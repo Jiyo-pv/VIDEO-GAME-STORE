@@ -1,0 +1,63 @@
+
+<html>
+<head>
+	<style type="text/css">
+		body
+		{
+			background-image: url(cover.jpg);
+			background-size: cover;
+		}
+		input[type="submit"]
+		{
+			background-color: lawngreen;
+			color:black;
+
+			padding: 6px 10px;
+			
+
+		}
+
+		input[type="password"]
+		{
+			padding: 6px 10px;
+		}
+		h1
+
+		{    background-color: cadetblue;
+			justify-content: center;
+			align-content: center;
+
+		}
+		div
+		{	color: black;
+
+			background-color:darkgrey;
+			width: 300px;height: 300px;
+			justify-content: center;
+			align-content: center;
+			position: relative;
+			left: 35%;
+			border: solid;
+			border-color: darkcyan;
+			border-width: 5px;
+			font-family: cursive;
+		}
+	</style>
+	
+	<title>admin</title>
+	
+</head>
+<body>
+
+	<div>
+		<form method="POST" action="adminpanel.php">
+			<h1>ADMIN LOGIN</h1>
+			
+			<br>
+			<input type="password" name="pass" required>
+			<input type="submit" name="submit"> 
+
+		</form>
+	</div>
+</body>
+</html>

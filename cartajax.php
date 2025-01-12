@@ -2,7 +2,10 @@
 session_start();
 $u=$_SESSION['i'];
 require 'connections.php';
-$gid=$_REQUEST['a'];
+$data=file_get_contents("php://input");
+$cartinput=json_decode($data,true);
+$gid=$cartinput["x"];
+// $gid=$_REQUEST['a'];
 $result=$conn->query("select game,icon,price from store where gid='$gid'");
 $row=mysqli_fetch_array($result);
 

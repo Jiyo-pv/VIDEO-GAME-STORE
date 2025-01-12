@@ -1,7 +1,9 @@
 <?php
 
 $conn=mysqli_connect('localhost','root','','rad.io');
-$f=$_REQUEST['x'];
+$data=file_get_contents("php://input");
+$searchword=json_decode($data,true);
+$f=$searchword['search'];
 
 if($f!=="")
 {

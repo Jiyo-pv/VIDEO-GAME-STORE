@@ -9,36 +9,67 @@ $iui=$_SESSION['i'];
 
 		function at(a)
 		{
-			var xmlhttp=new XMLHttpRequest();
-			xmlhttp.onreadystatechange=function() 
-			{
-				if(this.readyState==4 && this.status==200)
+			pass={
+				"x":a
+			}
+			fetch("cartajax.php",
 				{
+					"method":"POST",
+					"headers":{"Content-Type":"application/json"},
+					"body":JSON.stringify(pass)
+				}).then(function(response){
+					return response.text();
+				}).then(function(cart){
 					document.getElementById(a).value='added to cart';
-					document.getElementById(a).disabled=true;
-					document.getElementById(a).classList.remove('addcart');
-					document.getElementById('cartbutton').innerHTML=this.responseText;
-					document.getElementById(a).classList.add('justadded');
+			 		document.getElementById(a).disabled=true;
+			 		document.getElementById(a).classList.remove('addcart');
+			 		document.getElementById('cartbutton').innerHTML=cart;
+			 		document.getElementById(a).classList.add('justadded');
 				}
-			};
-			xmlhttp.open("GET","cartajax.php?a="+a,true);
-			xmlhttp.send();
+				
+			)
+			
+
+
+
+			// var xmlhttp=new XMLHttpRequest();
+			// xmlhttp.onreadystatechange=function() 
+			// {
+			// 	if(this.readyState==4 && this.status==200)
+			// 	{
+			// 		document.getElementById(a).value='added to cart';
+			// 		document.getElementById(a).disabled=true;
+			// 		document.getElementById(a).classList.remove('addcart');
+			// 		document.getElementById('cartbutton').innerHTML=this.responseText;
+			// 		document.getElementById(a).classList.add('justadded');
+			// 	}
+			// };
+			// xmlhttp.open("GET","cartajax.php?a="+a,true);
+			// xmlhttp.send();
 		}			
 		function showhint(x){	
 		
-
+			data={"search":x}
+			fetch("searchhint.php",{
+				"method":"POST",
+				"headers":{"Content-Type":"application/json"},
+					"body":JSON.stringify(data)
+				}).then(function(response){
+					return response.text();
+				}).then(function(text){document.getElementById("searchhint").innerHTML=text;})
+				
 		
 
-		var xmlhttp=new XMLHttpRequest();
-		xmlhttp.onreadystatechange= function() 
-		{
-		if (this.readyState==4 && this.status==200)
-		{
-        document.getElementById("searchhint").innerHTML=this.responseText;
-      	}
-		};
-		xmlhttp.open("GET","searchhint.php?x="+x);
-      	xmlhttp.send();
+		// var xmlhttp=new XMLHttpRequest();
+		// xmlhttp.onreadystatechange= function() 
+		// {
+		// if (this.readyState==4 && this.status==200)
+		// {
+        // document.getElementById("searchhint").innerHTML=this.responseText;
+      	// }
+		// };
+		// xmlhttp.open("GET","searchhint.php?x="+x);
+      	// xmlhttp.send();
 	}
 	</script>
 	<meta charset="utf-8">
